@@ -15,9 +15,9 @@ def mask_account_number(account_number):
 
 card_type = input("Введите тип карты: (Например Visa/MasterCard/Мир)")
 card_num = input("Введите номер карты: ")  # Чтоб не думать - 1234567890123456
-account_num = input("Введите номер счёта: ")  # Чтоб не думать - 12345678
+account_num = input("Введите номер счёта: ")  # Чтоб не думать - 1234567890123456
 
 print(mask_card_number(card_type, card_num))  # Вывод: 1234 56** **** 3456
 print(mask_account_number(account_num))  # Вывод: ****5678
 
-import data
+import showcase_date
