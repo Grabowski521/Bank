@@ -20,4 +20,4 @@ account_num = input("Введите номер счёта: ")  # Чтоб не �
 print(mask_card_number(card_type, card_num))  # Вывод: 1234 56** **** 3456
 print(mask_account_number(account_num))  # Вывод: ****5678
 
-import showcase_date
+import date
