@@ -1,7 +1,7 @@
 def mask_card_number(card_type, card_number):
     """Функция для номера карты"""
     if len(card_number) == 16 and card_number.isdigit():  # Проверяем, что номер карты состоит из 16 цифр
-        return f"{card_type}: {card_number[:4]} {card_number[4:6]} ** {card_number[-4:]}"  # Возвращаем маскированный номер карты
+        return f"{card_type}: {card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}"  # Возвращаем маскированный номер карты
     else:
         return "Неверный формат номера карты"
 
@@ -20,4 +20,3 @@ account_num = input("Введите номер счёта: ")  # Чтоб не �
 print(mask_card_number(card_type, card_num))  # Вывод: 1234 56** **** 3456
 print(mask_account_number(account_num))  # Вывод: ****5678
 
-import date
