@@ -1,15 +1,14 @@
 def filter_by_currency(transactions, currency):
     """
-    Фильтрует транзакции по заданной валюте.
-
+    Фильтрует транзакции по заданной валюте, указанной внутри 'operationAmount'.
     """
-    return (transaction for transaction in transactions if transaction['currency'] == currency)
+    return (transaction for transaction in transactions if transaction['operationAmount']['currency'] == currency)
 
 transactions = [
-    {'amount': 100, 'currency': 'USD'},
-    {'amount': 200, 'currency': 'EUR'},
-    {'amount': 300, 'currency': 'USD'},
-    {'amount': 400, 'currency': 'JPY'}
+    {'operationAmount': {'amount': 100, 'currency': 'USD'}},
+    {'operationAmount': {'amount': 200, 'currency': 'EUR'}},
+    {'operationAmount': {'amount': 300, 'currency': 'USD'}},
+    {'operationAmount': {'amount': 400, 'currency': 'JPY'}}
 ]
 
 usd_transactions = filter_by_currency(transactions, 'USD')
@@ -24,7 +23,6 @@ def transaction_descriptions(transactions):
 
     """
     for transaction in transactions:
-        if transaction['currency'] == 'USD':
             yield f"Транзакция на сумму {transaction['amount']} в валюте {transaction['currency']}."
 
 transactions = [

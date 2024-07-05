@@ -10,6 +10,8 @@ def test_transaction_descriptions():
     ]
     descriptions = [
         'Транзакция на сумму 100 в валюте USD.',
-        'Транзакция на сумму 300 в валюте USD.'
+        'Транзакция на сумму 200 в валюте EUR.',
+        'Транзакция на сумму 300 в валюте USD.',
+        'Транзакция на сумму 400 в валюте JPY.'
     ]
     assert list(transaction_descriptions(transactions)) == descriptions
