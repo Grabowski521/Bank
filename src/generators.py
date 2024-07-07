@@ -2,13 +2,15 @@ def filter_by_currency(transactions, currency):
     """
     Фильтрует транзакции по заданной валюте, указанной внутри 'operationAmount'.
     """
-    return (transaction for transaction in transactions if transaction['operationAmount']['currency'] == currency)
+    return (transaction for transaction in transactions if
+            transaction['operationAmount']['currency']['code'] == currency)
+
 
 transactions = [
-    {'operationAmount': {'amount': 100, 'currency': 'USD'}},
-    {'operationAmount': {'amount': 200, 'currency': 'EUR'}},
-    {'operationAmount': {'amount': 300, 'currency': 'USD'}},
-    {'operationAmount': {'amount': 400, 'currency': 'JPY'}}
+    {'operationAmount': {'amount': 100, 'currency': {'code': 'USD'}}},
+    {'operationAmount': {'amount': 200, 'currency': {'code': 'EUR'}}},
+    {'operationAmount': {'amount': 300, 'currency': {'code': 'USD'}}},
+    {'operationAmount': {'amount': 400, 'currency': {'code': 'JPY'}}}
 ]
 
 usd_transactions = filter_by_currency(transactions, 'USD')
@@ -23,13 +25,13 @@ def transaction_descriptions(transactions):
 
     """
     for transaction in transactions:
-            yield f"Транзакция на сумму {transaction['amount']} в валюте {transaction['currency']}."
+        yield f"{transaction['description']} - {transaction['operationAmount']['amount']} {transaction['operationAmount']['currency']['code']}"
 
 transactions = [
-    {'amount': 100, 'currency': 'USD'},
-    {'amount': 200, 'currency': 'EUR'},
-    {'amount': 300, 'currency': 'USD'},
-    {'amount': 400, 'currency': 'JPY'}
+    {'description': 'Перевод на счет', 'operationAmount': {'amount': 100, 'currency': {'code': 'USD'}}},
+    {'description': 'Оплата услуг', 'operationAmount': {'amount': 200, 'currency': {'code': 'EUR'}}},
+    {'description': 'Покупка в интернет-магазине', 'operationAmount': {'amount': 300, 'currency': {'code': 'USD'}}},
+    {'description': 'Платная подписка', 'operationAmount': {'amount': 400, 'currency': {'code': 'JPY'}}}
 ]
 
 for description in transaction_descriptions(transactions):

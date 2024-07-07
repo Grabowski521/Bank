@@ -1,17 +1,19 @@
-import pytest
-from tests.generators import transaction_descriptions
+from src.generators import transaction_descriptions
+
 
 def test_transaction_descriptions():
     transactions = [
-        {'amount': 100, 'currency': 'USD'},
-        {'amount': 200, 'currency': 'EUR'},
-        {'amount': 300, 'currency': 'USD'},
-        {'amount': 400, 'currency': 'JPY'}
+        {'description': 'Перевод на счет', 'operationAmount': {'amount': 100, 'currency': {'code': 'USD'}}},
+        {'description': 'Оплата услуг', 'operationAmount': {'amount': 200, 'currency': {'code': 'EUR'}}},
+        {'description': 'Покупка в интернет-магазине', 'operationAmount': {'amount': 300, 'currency': {'code': 'USD'}}},
+        {'description': 'Платная подписка', 'operationAmount': {'amount': 400, 'currency': {'code': 'JPY'}}}
     ]
+
     descriptions = [
-        'Транзакция на сумму 100 в валюте USD.',
-        'Транзакция на сумму 200 в валюте EUR.',
-        'Транзакция на сумму 300 в валюте USD.',
-        'Транзакция на сумму 400 в валюте JPY.'
+        'Перевод на счет - 100 USD',
+        'Оплата услуг - 200 EUR',
+        'Покупка в интернет-магазине - 300 USD',
+        'Платная подписка - 400 JPY'
     ]
+
     assert list(transaction_descriptions(transactions)) == descriptions

@@ -1,5 +1,5 @@
-import pytest
-from tests.generators import card_number_generator, filter_by_currency
+from src.generators import card_number_generator
+
 
 def test_card_number_generator():
     start_card_number = '0000 0000 0000 0001'
