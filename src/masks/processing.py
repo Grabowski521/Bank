@@ -5,10 +5,6 @@ from datetime import datetime
 def sort_by_state(records: List[Dict[str, Any]], state: str = 'EXECUTED') -> List[Dict[str, Any]]:
     """
     Фильтрует список словарей, оставляя только те, у которых ключ 'state' соответствует заданному значению.
-
-    :param records: Список словарей, каждый из которых представляет запись с ключами 'id', 'state', 'date'.
-    :param state: Состояние, по которому производится фильтрация (по умолчанию 'EXECUTED').
-    :return: Новый список словарей, отфильтрованный по заданному состоянию.
     """
     return [record for record in records if record.get('state') == state]
 
@@ -16,11 +12,6 @@ def sort_by_state(records: List[Dict[str, Any]], state: str = 'EXECUTED') -> Lis
 def sort_by_date(records: List[Dict[str, Any]], order: bool = True) -> List[Dict[str, Any]]:
     """
     Сортирует список словарей по дате в заданном порядке.
-
-    :param records: Список словарей, каждый из которых представляет запись с ключами 'id', 'state', 'date'.
-    :param order: Булевый параметр, определяющий порядок сортировки. True для сортировки по убыванию (по умолчанию),
-     False для сортировки по возрастанию.
-    :return: Новый список словарей, отсортированный по дате в заданном порядке.
     """
     return sorted(records, key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=order)
 
