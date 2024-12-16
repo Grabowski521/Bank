@@ -51,14 +51,6 @@ test_mask_account_number_invalid: Проверяет, что функция mask
 #### CSV-файлы
 Функция `read_csv_transactions` позволяет считывать финансовые операции из CSV-файлов и возвращать их в виде списка словарей.
 
-**Пример использования:**
-```python
-from transactions_reader import read_csv_transactions
-
-csv_file_path = 'transactions.csv'
-csv_transactions = read_csv_transactions(csv_file_path)
-print(csv_transactions[:5])  # Выводим первые 5 транзакций для проверки
-```
 
 #### XLSX-файлы
 Функция `read_excel_transactions` позволяет считывать финансовые операции из XLSX-файлов и возвращать их в виде списка словарей.
